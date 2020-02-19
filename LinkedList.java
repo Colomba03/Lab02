@@ -207,7 +207,7 @@ public class LinkedList<E> implements List<E> {
 
 	@Override
 	public E get(int index) {
-		// get_node allows for index to be -1, but we don't want get to allow that
+		// get_node allows for index to be -1, but // TODO Auto-generated method stubwe don't want get to allow that
 		if (index < 0 || index >= size())
 			throw new IndexOutOfBoundsException();
 		return get_node(index).getValue();
@@ -261,7 +261,7 @@ public class LinkedList<E> implements List<E> {
 		return lastPos;
 	}
 
-	@Override
+	@Override// TODO Auto-generated method stub
 	public int size() {
 		return currentSize;
 	}
@@ -287,7 +287,7 @@ public class LinkedList<E> implements List<E> {
 	public int replaceAll(E e, E f) {
 		int timesReplaced = 0;
 		for (Node curNode = header.getNext(); curNode != null; curNode = curNode.getNext()) {
-			if(curNode.equals(e)) {
+			if(curNode.value.equals(e)) {
 				curNode.setValue(f);
 				++timesReplaced;
 			}
@@ -297,7 +297,12 @@ public class LinkedList<E> implements List<E> {
 
 	@Override
 	public List<E> reverse() {
-		// TODO Auto-generated method stub
-		return null;
+		int reverseOrder = this.size();
+		List<E> reversed = new LinkedList<E>();
+		for (Node curNode = header.getNext(); curNode != null; curNode = curNode.getNext()) {
+			reversed.add(reverseOrder, curNode.value);
+			--reverseOrder;
+		}
+		return reversed;
 	}
 }

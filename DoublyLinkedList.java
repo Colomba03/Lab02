@@ -2,6 +2,8 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import LinkedList.Node;
+
 public class DoublyLinkedList<E> implements List<E> {
 
 	private class Node {
@@ -101,11 +103,17 @@ public class DoublyLinkedList<E> implements List<E> {
 	@Override
 	public void add(E obj) {
 		Node newNode = new Node(obj);
+		Node curNode;
 
 		/* TODO With a Doubly Linked List (with header AND trailer), this is easy.
 		 * The new node must be inserted before the trailer, and that's it.
 		 * You could use a different constructor, or just add some statements below.
 		 */
+		for (curNode = header; curNode.getNext() != null; curNode = curNode.getNext());
+		if(curNode.getNext() == trailer) {
+			
+		}
+		curNode.setNext(newNode);
 
 		currentSize++;
 	}
@@ -308,5 +316,17 @@ public class DoublyLinkedList<E> implements List<E> {
 		// Avoid throwing an exception if the list is already empty
 		while (size() > 0)
 			remove(0);
+	}
+
+	@Override
+	public int replaceAll(E e, E f) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<E> reverse() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

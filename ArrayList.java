@@ -215,10 +215,12 @@ public class ArrayList<E> implements List<E> {
 	public List<E> reverse() {
 		int size = this.currentSize;
 		 List<E> reversed = new ArrayList<E>(currentSize);
-		 for (int i = 0; i < this.currentSize; i++) {
-			reversed.add(i, this.get(size));
-			size = size - i;
-		}
+		 if(this.isEmpty() == false) {
+			 for (int i = 0; i < this.currentSize; i++) {
+				reversed.add(i, this.get(size));
+				--size;
+			}
+		 }
 		return reversed;
 	}
 }
